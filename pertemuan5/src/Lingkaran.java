@@ -1,63 +1,72 @@
-public class Lingkaran extends BangunDatar implements IResize {
-    /************ATRIBUT************/
-    private double jari;    // jari-jari lingkaran
+/*
+ * Nama File  : Lingkaran.java
+ * Deskripsi  : Class Anak Lingkaran.
+ * Pembuat   : Rafa Azlan / 24060124140126
+ * Tanggal   : 17 Maret 2026
+*/
 
-    /************METHOD************/
-    // Konstruktor default, mengeset jumlah sisi = 1 (lingkaran dianggap punya 1 sisi)
-    public Lingkaran(){
-        setJmlSisi(1);
+public class Lingkaran extends BangunDatar implements IResize{
+
+    private double jari;
+
+    public Lingkaran() {
+        jmlSisi = 1;
+
+    }
+    public Lingkaran(double diameter, String warna, String border) {
+        super(1, warna, border);
+        jari = diameter/2;
+        jmlSisi = 1;
+
+    }
+    public Lingkaran(double sisi) {
+        this.jari = sisi;
+        this.warna = " ";
+        this.border = " ";
+        jmlSisi = 1;
+
     }
 
-    // Konstruktor berparameter dengan diameter, warna, dan border
-    public Lingkaran (double diameter, String warna, String border){
-        super(1, warna, border);    
-        this.jari = diameter/2;     
+    public double getJari() {
+        return jari;
     }
-
-    // Mengembalikan nilai jari-jari lingkaran
-    public double getJari (){
-        return jari; 
-    }
-
-    // Mengeset jari-jari dengan nilai baru
-    public void setJari(double jari){
+    public void setJari(double jari) {
         this.jari = jari;
     }
 
-    // Menghitung dan mengembalikan luas lingkaran (π * r²)
-    public double getLuas(){
-        return Math.PI * jari * jari;
+    @Override
+    public double getLuas() {
+        return Math.PI*jari*jari;
     }
 
-    // Menghitung dan mengembalikan keliling lingkaran (2 * π * r)
-    public double getKeliling(){
-        return 2 * Math.PI * jari;
+    @Override
+    public double getKeliling() {
+        return Math.PI*jari*2;
     }
 
+    public double getDiameter() {
+        return 2*jari;
+    }
     @Override
     public void zoomIn() {
-        // Memperbesar jari-jari 10%.
-        jari = jari * 1.1;
+        jari = jari*1.1;
     }
 
-    @Override
+    @Override 
     public void zoomOut() {
-        // Memperkecil jari-jari 10%.
-        jari = jari * 0.9;
+        jari = jari*0.9;
     }
 
-    @Override
+    @Override 
     public void zoom(int percent) {
-        // Menskalakan jari-jari berdasarkan nilai persen.
         jari = jari * percent/100;
     }
 
-    // Override method printInfo untuk menampilkan informasi lengkap lingkaran
     @Override
     public void printInfo() {
-        super.printInfo();  
-        System.out.println("Jari-jari: " + jari);
-        System.out.println("Luas: " + getLuas());
-        System.out.println("Keliling: " + getKeliling());
+        super.printInfo();
+        System.out.println("jari : " + jari);
     }
+
+
 }

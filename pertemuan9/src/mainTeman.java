@@ -1,36 +1,38 @@
-public class mainTeman {
+/*
+ * File      : MainTeman.java
+ * Deskripsi : Program utama untuk menguji kelas Teman
+ * Pembuat   : Rafa Azlan / 24060124140126
+ * Tanggal   : 5 Mei 2026
+ */
+
+public class MainTeman {
     public static void main(String[] args) {
-        Teman teman = new Teman(10);
-        teman.addNama("Kirk");
-        teman.addNama("Jane");
-        teman.addNama("Juliet");
-        teman.addNama("Jokowi");
-        teman.addNama("Pigai");
-        teman.addNama("Mamat");
-        teman.addNama("Asep");
-        teman.addNama("Gibran");
-        teman.addNama("Bahlil");
-        teman.addNama("Prabowo");
+        Teman daftarTeman = new Teman();
 
-        teman.showTeman();
-
-        System.err.println("Jumlah teman: " + teman.getNbelm());
-
-        System.out.println("teman saya ketiga adalah: " + teman.getNama(2));
-
-        teman.setNama(7, "Jane Doe");
-        System.out.println("teman saya kedelapan adalah: " + teman.getNama(7));
+        System.out.println("Menguji Koleksi Teman");
+        daftarTeman.addNama("Budi");
+        daftarTeman.addNama("Mamat";
+        daftarTeman.addNama("Siti");
+        daftarTeman.addNama("Andi");
+        daftarTeman.addNama("Bagas CB100");
 
 
-        System.out.println("Apakah Jane adalah teman saya? " + teman.isMember("Jane"));
-        System.out.println("Jumlah nama 'Jokowi': " + teman.countNama("Jokowi"));
+        daftarTeman.showTeman();
+        System.out.println("Banyak elemen (getNbelm): " + daftarTeman.getNbelm());
 
-        teman.gantiNama("Kirk", "Chuck");
-        System.out.println("Setelah mengganti nama Kirk menjadi Chuck:");
-        teman.showTeman();
+        System.out.println("Teman di indeks 1: " + daftarTeman.getNama(1));
+        daftarTeman.setNama(2, "Joko");
+        System.out.println("Setelah Andi diubah jadi Joko:");
+        daftarTeman.showTeman();
 
-        teman.delNama("Bahlil");
-        System.out.println("Setelah menghapus Bahlil:");
-        teman.showTeman();
-    }    
+        System.out.println("Apakah 'Budi' anggota? " + daftarTeman.isMember("Budi"));
+
+        daftarTeman.gantiNama("Budi", "Budiman");
+        
+        System.out.println("Jumlah nama 'Siti': " + daftarTeman.countNama("Siti"));
+
+        daftarTeman.delNama("Joko");
+        System.out.println("\nSetelah Joko dihapus dan Budi diganti Budiman:");
+        daftarTeman.showTeman();
+    }
 }

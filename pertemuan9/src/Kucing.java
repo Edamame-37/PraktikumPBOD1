@@ -1,13 +1,25 @@
-class Kucing extends Anabul {
-    private final double bobot; 
+/*
+ * File      : Kucing.java
+ * Deskripsi : Kelas turunan Anabul (Kucing) dengan atribut bobot
+ * Pembuat   : Rafa Azlan / 24060124140126
+ * Tanggal   : 5 Mei 2026
+ */
 
-    public Kucing(String nama, double bobot) {
-        this.panggilan = nama;
+public class Kucing extends Anabul {
+    protected double bobot;
+
+    public Kucing(String panggilan, double bobot) {
+        super(panggilan);
         this.bobot = bobot;
     }
 
-    @Override
     public double getBobot() {
-        return this.bobot;
+        return bobot;
     }
+
+    @Override
+    public void gerak() { System.out.println(panggilan + " berjalan melata."); }
+
+    @Override
+    public void bersuara() { System.out.println(panggilan + " bersuara: Meong!"); }
 }

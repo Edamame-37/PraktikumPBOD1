@@ -1,82 +1,59 @@
 /*
  * Nama File  : BangunDatar.java
- * Deskripsi  : berisi class BangunDatar yang merepresentasikan bangun datar
+ * Deskripsi  : Class Parent Bangun Datar.
  * Pembuat   : Rafa Azlan / 24060124140126
- * Tanggal   :  2026
- */
+ * Tanggal   : 17 Maret 2026
+*/
 
-public abstract class BangunDatar{
-    /* ATRIBUT */
+public abstract class BangunDatar {
+
     protected int jmlSisi;
     protected String warna;
     protected String border;
-    private static int counterBangunDatar = 0;
+    protected static int counterBangunDatar = 0;
 
-    /* METHOD */
-
-    public BangunDatar(){
+    public BangunDatar() {
         counterBangunDatar++;
     }
-
-    public bangunDatar(int jmlSisi, String warna, string border){
+    public BangunDatar(int jmlSisi, String warna, String border) {
         this.jmlSisi = jmlSisi;
         this.warna = warna;
         this.border = border;
-
         counterBangunDatar++;
     }
+    public static void printCounterBangunDatar() {
+        System.out.println("Jumlah Objek Bangun Data : " + counterBangunDatar);
+    }
 
-    public int getJmlSisi(){
+    public int getJumlSisi() {
         return jmlSisi;
     }
-
-    public String getWarna(){
+    public void setJumlSisi(int jmlSisi) {
+        this.jmlSisi = jmlSisi;
+    }
+    public String getWarna() {
         return warna;
     }
-
-    public String getBorder(){
-        return border;
-    }
-
-    public void setWarna(String warna){
+    public void setWarna(String warna) {
         this.warna = warna;
     }
-
-    public void setBorder(String border){
+    public String getBorder() {
+        return border;
+    }
+    public void setBorder(String border) {
         this.border = border;
     }
 
-    /* ABSTRACT METHOD */
     public abstract double getLuas();
-
     public abstract double getKeliling();
 
-    /* METHOD BOOLEAN */
-
-    public boolean isEqualLuas(BangunDatar X){
-        return this.getLuas() == X.getLuas();
+    public  void printInfo() {
+        System.out.println("Jumlah sisi : " + jmlSisi );
+        System.out.println("Warna : " + warna);
+        System.out.println("Border : " + border);
     }
 
-    public boolean isEqualKeliling(BangunDatar X){
-        return this.getKeliling() == X.getKeliling();
+    public boolean isEqualLuas(BangunDatar x) {
+        return this.getLuas() == x.getLuas();
     }
-
-    /* METHOD PENAMPILAN */
-
-    public void printInfo(){
-        System.out.println("Jumlah Sisi: " + jmlSisi);
-        System.out.println("Warna: " + warna);
-        System.out.println("Border: " + border);
-    }
-
-    public void printCounterBangunDatar(){
-        System.out.println("Jumlah objek terinisiasi: " + counterBangunDatar);
-    }
-
-
-
-
-
-
-
 }

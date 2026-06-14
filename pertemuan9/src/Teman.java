@@ -1,45 +1,51 @@
+/*
+ * File      : Teman.java
+ * Deskripsi : Kelas pengelola koleksi nama teman menggunakan struktur data List
+ * Pembuat   : Rafa Azlan / 24060124140126
+ * Tanggal   : 5 Mei 2026
+ */
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Teman {
     private int nbelm;
-    private ArrayList<String> Lnama;
-    private int maxNbelm = -1;
+    private List<String> Lnama;
 
     public Teman() {
-        this.Lnama = new ArrayList<>();
-        this.nbelm = 0;
-    }
-
-    public Teman(int max) {
-        this.Lnama = new ArrayList<>(max);
-        this.maxNbelm = max;
-        this.nbelm = 0;
+        Lnama = new ArrayList<>();
+        nbelm = 0;
     }
 
     public int getNbelm() {
-        return this.Lnama.size();
+        return nbelm;
     }
 
     public String getNama(int indeks) {
-        return Lnama.get(indeks);
+        if (indeks >= 0 && indeks < Lnama.size()) {
+            return Lnama.get(indeks);
+        }
+        return "Indeks tidak valid";
     }
 
     public void setNama(int indeks, String nama) {
-        Lnama.set(indeks, nama);
+        if (indeks >= 0 && indeks < Lnama.size()) {
+            Lnama.set(indeks, nama);
+        } else {
+            System.out.println("Gagal setNama: Indeks di luar batas.");
+        }
     }
 
     public void addNama(String nama) {
-        if (maxNbelm == -1 || nbelm < maxNbelm) {
-            Lnama.add(nama);
-            nbelm++;
-        } else {
-            System.out.println("Koleksi sudah penuh!");
-        }
+        Lnama.add(nama);
+        nbelm++;
     }
 
     public void delNama(String nama) {
         if (Lnama.remove(nama)) {
             nbelm--;
+        } else {
+            System.out.println("Nama " + nama + " tidak ditemukan untuk dihapus.");
         }
     }
 
@@ -48,24 +54,25 @@ public class Teman {
     }
 
     public void gantiNama(String nama, String namabaru) {
-        int idx = Lnama.indexOf(nama);
-        if (idx != -1) {
-            Lnama.set(idx, namabaru);
+        int index = Lnama.indexOf(nama);
+        if (index != -1) {
+            Lnama.set(index, namabaru);
+        } else {
+            System.out.println("Gagal gantiNama: " + nama + " tidak ditemukan.");
         }
     }
 
     public int countNama(String nama) {
         int count = 0;
-        for (String s : Lnama) {
-            if (s.equals(nama)) count++;
+        for (String n : Lnama) {
+            if (n.equals(nama)) {
+                count++;
+            }
         }
         return count;
     }
 
     public void showTeman() {
-        System.out.println("Daftar Teman:");
-        for (String s : Lnama) {
-            System.out.println("- " + s);
-        }
+        System.out.println("Daftar Teman (" + nbelm + " orang): " + Lnama);
     }
 }

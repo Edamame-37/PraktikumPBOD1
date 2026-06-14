@@ -5,8 +5,6 @@
  * Tanggal   : 3 Maret 2026
  */
 
-
-
 public class Dosen {
     
     /*************ATRIBUT*************/
